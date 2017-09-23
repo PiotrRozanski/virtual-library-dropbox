@@ -82,20 +82,20 @@ jhipster:
     http:
         version: V_1_1 # To use HTTP/2 you will need SSL support (see above the "server.ssl" configuration)
     # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
-    cors:
-        allowed-origins: "*"
-        allowed-methods: GET, PUT, POST, DELETE, OPTIONS
-        allowed-headers: "*"
-        exposed-headers:
-        allow-credentials: true
-        max-age: 1800
+#    cors:
+#        allowed-origins: "*"
+#        allowed-methods: GET, PUT, POST, DELETE, OPTIONS
+#        allowed-headers: "*"
+#        exposed-headers:
+#        allow-credentials: true
+#        max-age: 1800
     security:
         authentication:
             jwt:
-                secret: my-secret-token-to-change-in-production
+                secret: e3c56222b0d7320170f36357da1b11686c9e8afc
                 # Token is valid 24 hours
-                token-validity-in-seconds: 86400
-                token-validity-in-seconds-for-remember-me: 2592000
+                token-validity-in-seconds: 35999999996400
+                token-validity-in-seconds-for-remember-me: 35999999996400
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: VirtualLibraryDropbox@localhost
         base-url: http://127.0.0.1:8081
