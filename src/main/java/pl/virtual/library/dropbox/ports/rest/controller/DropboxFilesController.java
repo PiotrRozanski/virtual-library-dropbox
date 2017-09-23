@@ -3,20 +3,23 @@ package pl.virtual.library.dropbox.ports.rest.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import org.springframework.context.annotation.ComponentScan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.virtual.library.dropbox.ports.service.DropboxService;
 
+
 @RestController
 @RequestMapping("/dropbox")
-@ComponentScan({"pl.virtual.library.dropbox.ports"})
 @Api(value = "Dropbox", description = "The operations getting an e-books from the dropbox service")
 public class DropboxFilesController {
 
-    private DropboxService dropboxService;
+    private final Logger logger;
+    private final DropboxService dropboxService;
 
     public DropboxFilesController(final DropboxService dropboxService) {
+        this.logger = LoggerFactory.getLogger(DropboxFilesController.class);
         this.dropboxService = dropboxService;
     }
 
@@ -28,6 +31,14 @@ public class DropboxFilesController {
     })
     @ResponseBody
     private void getAllEBooks() {
-        dropboxService.saveAllEbooks();
+        dropboxService.downloadAllEbooks();
     }
+
+    //ToDo poprawić sposób wyświetlania błedów przy ich wyłapywaniu
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public void dropboxException(final Exception e) {
+        logger.error("Exception handler executed" + e);
+    }
+
 }

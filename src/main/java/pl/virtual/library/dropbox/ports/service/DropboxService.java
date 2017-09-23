@@ -21,10 +21,9 @@ public class DropboxService {
         this.mapper = mapper;
     }
 
-    public void saveAllEbooks() {
+    public void downloadAllEbooks() {
         final List<Ebook> ebooksList;
 
-        EbooksListMapper mapper = new EbooksListMapper();
         ebooksList = mapper.mapToEbooksList(operation.getEbookMetadata());
 
         repository.save(ebooksList);
