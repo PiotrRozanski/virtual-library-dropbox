@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import pl.virtual.library.dropbox.ports.rest.request.EbookCommand;
 import pl.virtual.library.dropbox.ports.service.DropboxService;
 
 
@@ -23,15 +24,25 @@ public class DropboxFilesController {
         this.dropboxService = dropboxService;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/download/ebooks", produces = "application/json")
+    @RequestMapping(method = RequestMethod.GET, value = "/download/ebooks", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Successfully retrieved all ebooks from dropbox"),
         @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @ResponseBody
-    private void getAllEBooks() {
+    public void getAllEBooks() {
         dropboxService.downloadAllEbooks();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/download/ebook", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = "Successfully downloaded ebook"),
+        @ApiResponse(code = 500, message = "Internal Server Error")
+    })
+    public void downloadEbook(@RequestBody final EbookCommand command) {
+        dropboxService.downloadEbook(command.getPath());
     }
 
     //ToDo poprawić sposób wyświetlania błedów przy ich wyłapywaniu

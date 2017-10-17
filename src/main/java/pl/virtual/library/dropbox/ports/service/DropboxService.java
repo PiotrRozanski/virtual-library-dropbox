@@ -1,5 +1,7 @@
 package pl.virtual.library.dropbox.ports.service;
 
+import com.dropbox.core.DbxDownloader;
+import com.dropbox.core.v2.files.FileMetadata;
 import org.springframework.stereotype.Component;
 import pl.virtual.library.dropbox.application.command.Ebook;
 import pl.virtual.library.dropbox.ports.dropbox.DropboxOperation;
@@ -27,5 +29,9 @@ public class DropboxService {
         ebooksList = mapper.mapToEbooksList(operation.getEbookMetadata());
 
         repository.save(ebooksList);
+    }
+
+    public DbxDownloader<FileMetadata> downloadEbook(final String pathToFile) {
+        return operation.getEbook(pathToFile);
     }
 }
