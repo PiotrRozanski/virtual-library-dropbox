@@ -17,7 +17,9 @@ public class DropboxService {
     private DropboxOperation operation;
     private EbooksListMapper mapper;
 
-    public DropboxService(LibraryRepository repository, DropboxOperation operation, EbooksListMapper mapper) {
+    public DropboxService(final LibraryRepository repository,
+                          final DropboxOperation operation,
+                          final EbooksListMapper mapper) {
         this.repository = repository;
         this.operation = operation;
         this.mapper = mapper;
@@ -32,6 +34,7 @@ public class DropboxService {
     }
 
     public DbxDownloader<FileMetadata> downloadEbook(final String pathToFile) {
+        System.out.println(pathToFile);
         return operation.getEbook(pathToFile);
     }
 }
