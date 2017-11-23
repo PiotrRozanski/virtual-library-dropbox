@@ -12,4 +12,36 @@ public class Ebook {
         this.size = size;
         this.pathLower = pathLower;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getPathLower() {
+        return pathLower;
+    }
+
+    public void setPathLower(String pathLower) {
+        this.pathLower = pathLower;
+    }
 }

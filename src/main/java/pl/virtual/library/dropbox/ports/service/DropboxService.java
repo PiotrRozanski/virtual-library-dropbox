@@ -26,15 +26,12 @@ public class DropboxService {
     }
 
     public void downloadAllEbooks() {
-        final List<Ebook> ebooksList;
-
-        ebooksList = mapper.mapToEbooksList(operation.getEbookMetadata());
+        final List<Ebook> ebooksList = mapper.mapToEbooksList(operation.getEbookMetadata());
 
         repository.save(ebooksList);
     }
 
     public DbxDownloader<FileMetadata> downloadEbook(final String pathToFile) {
-        System.out.println(pathToFile);
         return operation.getEbook(pathToFile);
     }
 }
