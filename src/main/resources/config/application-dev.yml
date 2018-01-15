@@ -82,13 +82,13 @@ jhipster:
     http:
         version: V_1_1 # To use HTTP/2 you will need SSL support (see above the "server.ssl" configuration)
     # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
-#    cors:
-#        allowed-origins: "*"
-#        allowed-methods: GET, PUT, POST, DELETE, OPTIONS
-#        allowed-headers: "*"
-#        exposed-headers:
-#        allow-credentials: true
-#        max-age: 1800
+    cors:
+        allowed-origins: "*"
+        allowed-methods: GET, PUT, POST, DELETE, OPTIONS
+        allowed-headers: "*"
+        exposed-headers:
+        allow-credentials: false
+        max-age: 1800
     security:
         authentication:
             jwt:
@@ -114,12 +114,12 @@ jhipster:
             report-frequency: 60 # in seconds
     logging:
         logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
-            enabled: false
+            enabled: true
             host: localhost
             port: 5000
             queue-size: 512
         spectator-metrics: # Reports Spectator Circuit Breaker metrics in the logs
-            enabled: false
+            enabled: true
             # edit spring.metrics.export.delay-millis to set report frequency
 
 # ===================================================================

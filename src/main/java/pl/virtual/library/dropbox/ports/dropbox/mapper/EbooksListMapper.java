@@ -21,7 +21,7 @@ public class EbooksListMapper {
     public List<Ebook> mapToEbooksList(final ListFolderResult listFolderResult) {
         final JSONArray ebooksListJson = prepareJsonArrayOfEbooks(listFolderResult);
         final Type listType = new TypeToken<List<Ebook>>() {}.getType();
-        
+
         return normalizeEbookName(new Gson().fromJson(ebooksListJson.toString(), listType));
      }
 
