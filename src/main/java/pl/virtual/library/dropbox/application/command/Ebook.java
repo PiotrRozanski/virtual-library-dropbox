@@ -4,13 +4,14 @@ public class Ebook {
     private String name;
     private String id;
     private String size;
-    private String pathLower;
+    private String path_lower;
 
-    public Ebook(String name, String id, String size, String pathLower) {
+    //TOdo mapowanie jsona musi byc takie same jak w otrzymywanym json (nie pathlower/ tylko path_lower)
+    public Ebook(String name, String id, String size, String path_lower) {
         this.name = name;
         this.id = id;
         this.size = size;
-        this.pathLower = pathLower;
+        this.path_lower = path_lower;
     }
 
     public String getName() {
@@ -38,10 +39,20 @@ public class Ebook {
     }
 
     public String getPathLower() {
-        return pathLower;
+        return path_lower;
     }
 
-    public void setPathLower(String pathLower) {
-        this.pathLower = pathLower;
+    public void setPathLower(String path_lower) {
+        this.path_lower = path_lower;
+    }
+
+    @Override
+    public String toString() {
+        return "Ebook{" +
+            "name='" + name + '\'' +
+            ", id='" + id + '\'' +
+            ", size='" + size + '\'' +
+            ", path_lower='" + path_lower + '\'' +
+            '}';
     }
 }

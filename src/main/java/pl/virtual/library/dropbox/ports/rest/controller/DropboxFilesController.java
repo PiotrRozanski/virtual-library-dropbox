@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import pl.virtual.library.dropbox.ports.rest.request.EbookCommand;
 import pl.virtual.library.dropbox.ports.service.DropboxService;
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+
 
 @RestController
 @RequestMapping("/dropbox")

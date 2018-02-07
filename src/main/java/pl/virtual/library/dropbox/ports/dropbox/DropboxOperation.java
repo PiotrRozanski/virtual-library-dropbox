@@ -8,7 +8,9 @@ import com.dropbox.core.v2.files.ListFolderResult;
 import org.springframework.stereotype.Component;
 import pl.virtual.library.dropbox.ports.dropbox.exception.DropboxConnectionException;
 
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 
 @Component
